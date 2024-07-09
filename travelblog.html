@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Reis door Europa met Arthur Ross! Ontdek de schoonheid van Europa met deze boeiende reisverhalen.">
-    <title>Gallery - Reis door Europa met Arthur Ross!!</title>
+    <title>Gallery - Reis door Europa met Arthur Ross!</title>
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-HB19E314J8"></script>
     <script>
@@ -15,23 +15,96 @@
     </script>
     <!-- Styling -->
     <style>
-        body { color: red; background-color: black; font-family: 'Arial', sans-serif; margin: 0; padding: 0; }
-        .image-gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; padding: 20px; }
-        .image-item { overflow: hidden; border: 2px solid green; transition: border-color .3s; }
-        .image-item img { width: 100%; height: auto; border: 2px solid transparent; transition: transform .3s ease-in-out, border-color .3s; }
-        .image-item:hover img { transform: scale(1.1); border-color: #fff; }
-        .image-caption { text-align: center; margin-top: 10px; color: green; }
-        .golden-link { color: green; text-decoration: none; font-weight: bold; }
-        .golden-link:hover { text-decoration: underline; }
-        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); align-items: center; justify-content: center; z-index: 1000; }
-        .modal-content { background-color: #f8f8f8; color: #333; padding: 20px; border: 1px solid #888; border-radius: 5px; max-width: 90%; width: 800px; position: relative; text-align: center; }
-        .close { position: absolute; top: 10px; right: 10px; color: #aaa; font-size: 28px; font-weight: bold; cursor: pointer; transition: color .3s; }
-        .close:hover { color: #000; }
-        .feedback-text { color: #ffd700; }
-        .selected-feedback { background-color: #ffd700 !important; }
-        @media only screen and (max-width: 768px) { 
-            .image-gallery { grid-template-columns: 1fr; }
-            .modal-content { width: 90%; }
+        body {
+            color: red;
+            background-color: black;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .image-item {
+            overflow: hidden;
+            border: 2px solid green;
+            transition: border-color .3s;
+        }
+        .image-item img {
+            width: 100%;
+            height: auto;
+            border: 2px solid transparent;
+            transition: transform .3s ease-in-out, border-color .3s;
+        }
+        .image-item:hover img {
+            transform: scale(1.1);
+            border-color: #fff;
+        }
+        .image-caption {
+            text-align: center;
+            margin-top: 10px;
+            color: green;
+        }
+        .golden-link {
+            color: green;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .golden-link:hover {
+            text-decoration: underline;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        .modal-content {
+            background-color: #f8f8f8;
+            color: #333;
+            padding: 20px;
+            border: 1px solid #888;
+            border-radius: 5px;
+            max-width: 90%;
+            width: 800px;
+            position: relative;
+            text-align: center;
+        }
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color .3s;
+        }
+        .close:hover {
+            color: #000;
+        }
+        .feedback-text {
+            color: #ffd700;
+        }
+        .selected-feedback {
+            background-color: #ffd700 !important;
+        }
+        @media only screen and (max-width: 768px) {
+            .image-gallery {
+                grid-template-columns: 1fr;
+            }
+            .modal-content {
+                width: 90%;
+            }
         }
     </style>
 </head>
@@ -71,10 +144,10 @@
             </a>
         </div>
     </div>
-    
+
     <!-- Feedback Button -->
     <button onclick="openModal()">Geef Feedback</button>
-    
+
     <!-- Feedback Modal -->
     <div id="feedback-modal" class="modal">
         <div class="modal-content">
