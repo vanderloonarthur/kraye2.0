@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -153,21 +152,25 @@
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
             <h2>Hoe blij bent u met de website?</h2>
-            <form id="feedbackForm" method="post" action="handle_feedback.php">
-                <div id="feedback-buttons">
-                    <button type="button" onclick="selectFeedback(this, 'Zeer gelukkig', '😃')" aria-label="Zeer gelukkig">Zeer gelukkig 😃</button>
-                    <button type="button" onclick="selectFeedback(this, 'Gelukkig', '😊')" aria-label="Gelukkig">Gelukkig 😊</button>
-                    <button type="button" onclick="selectFeedback(this, 'Neutraal', '😐')" aria-label="Neutraal">Neutraal 😐</button>
-                    <button type="button" onclick="selectFeedback(this, 'Ongelukkig', '😞')" aria-label="Ongelukkig">Ongelukkig 😞</button>
-                    <button type="button" onclick="selectFeedback(this, 'Zeer ongelukkig', '😢')" aria-label="Zeer ongelukkig">Zeer ongelukkig 😢</button>
+            <form id="feedbackForm" method="post" action="/api/handle_feedback">
+                <!-- Form fields for feedback -->
+                <div>
+                    <label for="selectedFeedback">Select Feedback:</label><br>
+                    <select id="selectedFeedback" name="selectedFeedback">
+                        <option value="Zeer gelukkig">Zeer gelukkig</option>
+                        <option value="Gelukkig">Gelukkig</option>
+                        <option value="Neutraal">Neutraal</option>
+                        <option value="Ongelukkig">Ongelukkig</option>
+                        <option value="Zeer ongelukkig">Zeer ongelukkig</option>
+                    </select>
                 </div>
                 <div>
-                    <label for="additionalComments">Kritiek:</label><br>
+                    <label for="additionalComments">Additional Comments:</label><br>
                     <textarea id="additionalComments" name="additionalComments" rows="4" placeholder="Voer hier uw commentaar in..."></textarea>
                 </div>
-                <input type="hidden" id="selectedFeedback" name="selectedFeedback">
-                <button type="submit" name="feedback">Plaats kritiek</button>
+                <button type="submit">Submit Feedback</button>
             </form>
+            
         </div>
     </div>
 
