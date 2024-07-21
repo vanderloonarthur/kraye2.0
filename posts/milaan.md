@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Naar Milaan zonder geld of plan
-permalink: kraye/posts/milaan.md/
+permalink: /posts/milaan.md/
 ---
 
 <html lang="en">
@@ -222,8 +222,9 @@ permalink: kraye/posts/milaan.md/
       Gelukkig heb ik niet veel geld dus zullen ze mij met rust laten.</p>
     </div>
     <!-- Back to Gallery button -->
-    <a href="{{ site.baseurl }}/travelblog.md/" class="back-to-gallery">Back to Gallery</a>
-  </div>
+    <div style="text-align: center;">
+  <a href='{{ site.baseurl }}../../travelblog.html' class="back-to-gallery">Back to Gallery</a>
+</div>
 
   <div id="myModal" class="modal" onclick="toggleModal()">
     <div class="modal-content fullscreen-modal">
@@ -286,5 +287,3 @@ permalink: kraye/posts/milaan.md/
     modalImage.addEventListener("click", closeModal);
   });
 </script>
-</body>
-</html>

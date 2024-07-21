@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Marshall Stuttgart
-permalink: kraye/posts/stuttgart.md/
+permalink: /posts/stuttgart.md/
 ---
 <html lang="en">
 <head>
@@ -258,7 +258,8 @@ Bij schizofrenie verlies je schijnbaar na loop van tijd intelligentie, waarbij b
   </div>
     <!-- Back to Gallery button -->
       <div style="text-align: center;">
-    <a href="{{ site.baseurl }}/travelblog.md/" class="back-to-gallery">Back to Gallery</a>
+  <a href='{{ site.baseurl }}../../travelblog.html' class="back-to-gallery">Back to Gallery</a>
+</div>
 
   <div id="myModal" class="modal" onclick="toggleModal()">
     <div class="modal-content fullscreen-modal">

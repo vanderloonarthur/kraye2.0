@@ -1,7 +1,7 @@
 ---
 layout: default
 title: D'Arthur is coming home
-permalink: kraye/posts/Edinburgh.md/
+permalink: /posts/Edinburgh.md/
 ---
 <html lang="en">
 <head>
@@ -26,10 +26,10 @@ permalink: kraye/posts/Edinburgh.md/
       max-width: 80%;
       margin: 15px auto;
     }
-      h1{
-        color: green;
+    h1 {
+      color: green;
     }
-    h2{
+    h2 {
       color: red;
     }
     p {
@@ -76,12 +76,6 @@ permalink: kraye/posts/Edinburgh.md/
     .fullscreen-image.show {
       opacity: 1;
     }
-    .center-text {
-      font-size: 1.5vw;
-      color: #FF2400;
-      max-width: 80%;
-      margin: 15px auto;
-    }
     .small-image {
       cursor: pointer;
       max-width: 100%;
@@ -97,10 +91,10 @@ permalink: kraye/posts/Edinburgh.md/
     .modal {
       display: none;
       position: fixed;
-      top: auto;
-      right: 0; /* Stick to the right */
+      top: 0;
+      right: 0; 
       bottom: 0;
-      left: auto; /* Unset left */
+      left: 0; 
       width: 100%;
       height: 100%;
       background: rgba(0, 0, 0, 0.8);
@@ -110,24 +104,24 @@ permalink: kraye/posts/Edinburgh.md/
       align-items: center;
       opacity: 0;
       transition: opacity 1s ease-in-out;
-      pointer-events: none; /* Clicks on the modal won't trigger events */
-}
+      pointer-events: none;
+    }
     .modal-content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  max-width: 100%; /* Adjusted max-width */
-  max-height: 100%; /* Adjusted max-height */
-  object-fit: contain;
-  box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
-}
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+    }
     .modal-image {
       width: 100%;
       height: auto;
-      max-width: 100vw; /* Adjusted max-width to fit the viewport width */
-      max-height: 100vh; /* Adjusted max-height to fit the viewport height */
+      max-width: 100vw;
+      max-height: 100vh;
       object-fit: contain;
     }
     @keyframes fadeIn {
@@ -139,15 +133,11 @@ permalink: kraye/posts/Edinburgh.md/
       }
     }
     .modal.fade-in {
-      animation: fadeIn 2s ease-in-out; /* Increased duration to 2 seconds */
+      animation: fadeIn 2s ease-in-out; 
       opacity: 1;
     }
     .modal.fade-out {
       opacity: 0;
-    }
-    /* Add a transition for the fade-out effect */
-    .modal.fade-out .modal-content {
-      transition: opacity 1s ease-in-out;
     }
     .modal:hover .modal-content {
       box-shadow: 0 0 30px rgba(255, 215, 0, 1);
@@ -163,30 +153,27 @@ permalink: kraye/posts/Edinburgh.md/
       }
     }
     .modal-video {
-  width: 80%; /* Adjust as needed */
-  max-width: 800px; /* Maximum width for larger screens */
-  border-radius: 10px;
-  overflow: hidden;
-}
-.modal-video video {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  outline: none; /* Remove default focus outline */
-}
-.modal-video::-webkit-media-controls {
-  /* Style the default video controls for WebKit browsers */
-  background-color: rgba(0, 0, 0, 0.7);
-  border-radius: 10px;
-}
-.modal-video::-webkit-media-controls-play-button {
-  /* Style the play button */
-  color: white;
-}
-.modal-video::-webkit-media-controls-volume-slider {
-  /* Style the volume slider */
-  background-color: transparent;
-}
+      width: 80%;
+      max-width: 800px;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .modal-video video {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      outline: none;
+    }
+    .modal-video::-webkit-media-controls {
+      background-color: rgba(0, 0, 0, 0.7);
+      border-radius: 10px;
+    }
+    .modal-video::-webkit-media-controls-play-button {
+      color: white;
+    }
+    .modal-video::-webkit-media-controls-volume-slider {
+      background-color: transparent;
+    }
   </style>
 </head>
 <body>
@@ -216,11 +203,11 @@ permalink: kraye/posts/Edinburgh.md/
       In de trein naar Calais.
       Vanaf Noorder Kempen ben ik meegelift met Mohammed tot aan Antwerpen. Hij zette me op een druk tankstation, langs de kant van de weg af. Ik stond in de berm, dus moest rennen om over te steken en niet geraakt te worden door langsrijdende auto’s.
       Een maal bij het tankstation aangekomen vroeg ik een Engelsman om een lift. Hij zei echter dat hij de andere kant opging en dat hij me dus niet kon helpen.
-      Toen ik verder liep en andere mensen vroeg stopte de Engelsman zijn auto. Hij gaf me 25 euro en zei dat ik het beste met de trein naar Calais kon gaan. Ik heb maar zijn advies opgevolgd en zit nu ontspannen in de trein naar Calais Ville. Wel ben ik nu 51,60 euro’s lichter. Prijskaartjes zijn tamelijk prijzig. Met nog maar 11 euro over op de bank zal ik het moeten redden. Misschien stuurt mijn oud-huisgenoot Miguel me nog zijn restschuld van 325 euro anders wordt het erg moeilijk. Hopelijk steek ik vannacht nog het kanaal over naar Dover. Anders zal ik moeten overnachten in Calais.
+      Toen ik verder liep en andere mensen vroeg stopte de Engelsman zijn auto. Hij gaf me 25 euro en zei dat ik het beste met de trein naar Calais kon gaan. Ik heb maar zijn advies opgevolgd en zit nu ontspannen in de trein naar Calais Ville. Wel ben ik nu 51,60 euro’s lichter. Prijskaartjes zijn tamelijk prijzig. Met nog maar 11 euro over op de bank zal ik het moeten redden. Misschien stuurt mijn oud-huisgenoot Miguel me nog zijn restschuld van 325 euro anders wordt het erg moeilijk.
     </p>
     <p>
-      11th of April, 2024. 2 days until the wedding.
-      I was just dropped off to the ferry port by an English woman and her son. Just a couple of hours before I met a bunch of Sudanese immigrants all trying to go to Britain.
+      "11th of April, 2024. 2 days until the wedding.
+      I was just dropped off to the ferry port by an English woman and her son. Just a couple of hours before I met a bunch of Sudanese immigrants all trying to go to Britain."
     </p>
     <p>
       Vanaf Antwerpen heb ik een treinkaartje gekocht, met de 25 euro, die een vriendelijke Engelsman me gaf, naar Calais.
@@ -264,7 +251,7 @@ permalink: kraye/posts/Edinburgh.md/
 </div>
 <!-- Back to Gallery button -->
 <div style="text-align: center;">
-  <a href="{{ site.baseurl }}/travelblog.md/" class="back-to-gallery">Back to Gallery</a>
+  <a href='{{ site.baseurl }}../../travelblog.html' class="back-to-gallery">Back to Gallery</a>
 </div>
 
 <div id="myModal" class="modal" onclick="toggleModal()">

@@ -1,19 +1,25 @@
 <?php
-// Check if form was submitted
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Process form data
-    $selectedFeedback = $_POST['selectedFeedback'];
-    $additionalComments = $_POST['additionalComments'];
-    
-    // Here you would typically process and store the feedback
-    // Example: Save to database, send email, etc.
-    
-    // For now, let's just print the received data
-    echo "Feedback: $selectedFeedback\n";
-    echo "Additional Comments: $additionalComments\n";
+header('Content-Type: application/json');
+
+// Check if the request method is POST
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Retrieve and sanitize input data
+    $selectedFeedback = isset($_POST['selectedFeedback']) ? htmlspecialchars(trim($_POST['selectedFeedback'])) : '';
+    $additionalComments = isset($_POST['additionalComments']) ? htmlspecialchars(trim($_POST['additionalComments'])) : '';
+
+    // Validate input (optional, depending on your requirements)
+
+    // Example processing: Log to a file (for demonstration purposes)
+    $logMessage = "Feedback: " . $selectedFeedback . "\n";
+    $logMessage .= "Additional Comments: " . $additionalComments . "\n";
+    file_put_contents('feedback.log', $logMessage, FILE_APPEND);
+
+    // Respond with a success message (JSON format)
+    http_response_code(200);
+    echo json_encode(['message' => 'Feedback submitted successfully.']);
 } else {
-    // Handle other HTTP methods or direct access attempts gracefully
+    // Handle requests other than POST (e.g., GET, PUT, DELETE)
     http_response_code(405); // Method Not Allowed
-    echo "Method not allowed";
+    echo json_encode(['error' => 'Method not allowed']);
 }
 ?>

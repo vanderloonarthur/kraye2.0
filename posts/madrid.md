@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Reis Vincent van Gogh achterna
-permalink: kraye/posts/madrid.md/
+permalink: /posts/madrid.md/
 ---
 
 <html lang="en">
@@ -183,7 +183,9 @@ Arthur Ross</p>
 <img src="{{ site.baseurl }}/assets/images/vangogh.jpeg" alt="Boerderij in het koren, Vincent van Gogh" />
 <figcaption>Boerderij in het koren, Vincent van Gogh</figcaption>
     <!-- Back to Gallery button -->
-    <a href="{{ site.baseurl }}/travelblog.md/" class="back-to-gallery">Back to Gallery</a>
+    <div style="text-align: center;">
+  <a href='{{ site.baseurl }}../../travelblog.html' class="back-to-gallery">Back to Gallery</a>
+</div>
 
   <div id="myModal" class="modal" onclick="toggleModal()">
     <div class="modal-content fullscreen-modal">

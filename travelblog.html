@@ -1,4 +1,9 @@
+---
+permalink: /travelblog.html/
+---
+
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,49 +17,58 @@
         gtag('js', new Date());
         gtag('config', 'G-HB19E314J8');
     </script>
-    <!-- Styling -->
+    <!-- External Stylesheet for Styling -->
+    <link rel="stylesheet" href="styles.css">
     <style>
-        body {
-            color: red;
-            background-color: black;
-            font-family: 'Arial', sans-serif;
+        body, html {
+            height: 100%;
             margin: 0;
-            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: black;
+            color: white;
         }
+
+        header, nav, footer {
+            text-align: center;
+            padding: 1em;
+            background-color: #333;
+            color: white;
+        }
+
         .image-gallery {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
+            gap: 15px;
             padding: 20px;
         }
+
         .image-item {
+            position: relative;
             overflow: hidden;
-            border: 2px solid green;
-            transition: border-color .3s;
         }
+
         .image-item img {
             width: 100%;
             height: auto;
-            border: 2px solid transparent;
-            transition: transform .3s ease-in-out, border-color .3s;
+            display: block;
+            transition: transform 0.3s;
         }
+
         .image-item:hover img {
-            transform: scale(1.1);
-            border-color: #fff;
+            transform: scale(1.05);
         }
+
         .image-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px;
             text-align: center;
-            margin-top: 10px;
-            color: green;
         }
-        .golden-link {
-            color: green;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .golden-link:hover {
-            text-decoration: underline;
-        }
+
         .modal {
             display: none;
             position: fixed;
@@ -62,153 +76,207 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            align-items: center;
+            background: rgba(0, 0, 0, 0.8);
             justify-content: center;
-            z-index: 1000;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
         }
+
         .modal-content {
-            background-color: #f8f8f8;
-            color: #333;
+            background: white;
+            color: black;
             padding: 20px;
-            border: 1px solid #888;
-            border-radius: 5px;
-            max-width: 90%;
-            width: 800px;
+            border-radius: 10px;
             position: relative;
-            text-align: center;
+            width: 90%;
+            max-width: 500px;
         }
-        .close {
+
+        .modal .close {
             position: absolute;
             top: 10px;
             right: 10px;
-            color: #aaa;
-            font-size: 28px;
-            font-weight: bold;
+            background: none;
+            border: none;
+            font-size: 1.5em;
             cursor: pointer;
-            transition: color .3s;
         }
-        .close:hover {
-            color: #000;
+
+        .modal.fade-in {
+            opacity: 1;
         }
-        .feedback-text {
-            color: #ffd700;
+
+        .modal.fade-out {
+            opacity: 0;
         }
-        .selected-feedback {
-            background-color: #ffd700 !important;
+
+        #scrollUpBtn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px;
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: none;
         }
-        @media only screen and (max-width: 768px) {
-            .image-gallery {
-                grid-template-columns: 1fr;
-            }
-            .modal-content {
-                width: 90%;
-            }
+
+        #scrollUpBtn:hover {
+            background-color: green;
+        }
+
+        footer {
+            font-size: 0.9em;
         }
     </style>
 </head>
+
 <body>
-    <div class="image-gallery">
-        <!-- Gallery Items -->
-        <div class="image-item">
-            <a href="{{ site.baseurl }}/kraye/posts/milaan.md" class="golden-link">
-                <img src="{{ site.baseurl }}/assets/images/il_duomo.jpeg" alt="Milaan">
-                <div class="image-caption">
-                    <p>Naar Milaan zonder geld of plan [mei 2016]</p>
-                </div>
-            </a>
-        </div>
-        <div class="image-item">
-            <a href="{{ site.baseurl }}/kraye/posts/madrid.md" class="golden-link">
-                <img src="{{ site.baseurl }}/assets/images/bear-1.jpg" alt="Madrid">
-                <div class="image-caption">
-                    <p>Vincent van Gogh achterna [juni/ juli 2020]</p>
-                </div>
-            </a>
-        </div>
-        <div class="image-item">
-            <a href="{{ site.baseurl }}/kraye/posts/stuttgart.md" class="golden-link">
-                <img src="{{ site.baseurl }}/assets/images/stag3.jpeg" alt="Stuttgart">
-                <div class="image-caption">
-                    <p>Marshall Stuttgart [december 2020]</p>
-                </div>
-            </a>
-        </div>
-        <div class="image-item">
-            <a href="{{ site.baseurl }}/kraye/posts/Edinburgh.md" class="golden-link">
-                <img src="{{ site.baseurl }}/assets/images/Edinburgh.webp" alt="Edinburgh">
-                <div class="image-caption">
-                    <p>D'Arthur is coming home! [april 2024]</p>
-                </div>
-            </a>
-        </div>
-    </div>
+    <header>
+        <nav>
+            <!-- Navigation links -->
+        </nav>
+    </header>
 
-    <!-- Feedback Button -->
-    <button onclick="openModal()">Geef Feedback</button>
+    <main>
+        <section class="image-gallery">
+            <!-- Gallery Items -->
+            <div class="image-item">
+                <a href="/posts/milaan.md" class="golden-link">
+                    <img src="/assets/images/il_duomo.jpeg" alt="Milaan">
+                    <div class="image-caption">
+                        <p>Naar Milaan zonder geld of plan [mei 2016]</p>
+                    </div>
+                </a>
+            </div>
+            <div class="image-item">
+                <a href="/posts/madrid.md" class="golden-link">
+                    <img src="/assets/images/bear-1.jpg" alt="Madrid">
+                    <div class="image-caption">
+                        <p>Vincent van Gogh achterna [juni/ juli 2020]</p>
+                    </div>
+                </a>
+            </div>
+            <div class="image-item">
+                <a href="/posts/stuttgart.md" class="golden-link">
+                    <img src="/assets/images/stag3.jpeg" alt="Stuttgart">
+                    <div class="image-caption">
+                        <p>Marshall Stuttgart [december 2020]</p>
+                    </div>
+                </a>
+            </div>
+            <div class="image-item">
+                <a href="/posts/Edinburgh.md" class="golden-link">
+                    <img src="/assets/images/edinburgh.webp" alt="Edinburgh">
+                    <div class="image-caption">
+                        <p>D'Arthur is coming home! [april 2024]</p>
+                    </div>
+                </a>
+            </div>
+        </section>
 
-    <!-- Feedback Modal -->
-    <div id="feedback-modal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <h2>Hoe blij bent u met de website?</h2>
-            <form id="feedbackForm" method="post" action="/api/handle_feedback">
-                <!-- Form fields for feedback -->
-                <div>
-                    <label for="selectedFeedback">Select Feedback:</label><br>
-                    <select id="selectedFeedback" name="selectedFeedback">
-                        <option value="Zeer gelukkig">Zeer gelukkig</option>
-                        <option value="Gelukkig">Gelukkig</option>
-                        <option value="Neutraal">Neutraal</option>
-                        <option value="Ongelukkig">Ongelukkig</option>
-                        <option value="Zeer ongelukkig">Zeer ongelukkig</option>
-                    </select>
-                </div>
-                <div>
-                    <label for="additionalComments">Additional Comments:</label><br>
-                    <textarea id="additionalComments" name="additionalComments" rows="4" placeholder="Voer hier uw commentaar in..."></textarea>
-                </div>
-                <button type="submit">Submit Feedback</button>
-            </form>
-            
+        <!-- Feedback Button -->
+        <button onclick="openModal()" aria-label="Open feedback modal">Geef Feedback</button>
+
+        <!-- Feedback Modal -->
+        <div id="feedback-modal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h2>Hoe blij bent u met de website?</h2>
+                <form id="feedbackForm" onsubmit="submitFeedback(); return false;">
+                    <div>
+                        <label for="selectedFeedback">Select Feedback:</label><br>
+                        <select id="selectedFeedback" name="selectedFeedback">
+                            <option value="Zeer gelukkig">Zeer gelukkig</option>
+                            <option value="Gelukkig">Gelukkig</option>
+                            <option value="Neutraal">Neutraal</option>
+                            <option value="Ongelukkig">Ongelukkig</option>
+                            <option value="Zeer ongelukkig">Zeer ongelukkig</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="additionalComments">Additional Comments:</label><br>
+                        <textarea id="additionalComments" name="additionalComments" rows="4" placeholder="Voer hier uw commentaar in..."></textarea>
+                    </div>
+                    <button type="submit">Submit Feedback</button>
+                </form>
+            </div>
         </div>
-    </div>
 
-    <!-- Scroll to Top Button -->
-    <button id="scrollUpBtn" onclick="scrollToTop()" aria-label="Scroll naar boven">Scroll naar boven</button>
+        <!-- Scroll to Top Button -->
+        <button id="scrollUpBtn" onclick="scrollToTop()" aria-label="Scroll naar boven">Scroll naar boven</button>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Arthur Ross. Alle rechten voorbehouden.</p>
+    </footer>
 
     <!-- JavaScript -->
-    <script defer>
+    <script>
         function openModal() {
-            document.getElementById("feedback-modal").style.display = "flex";
+            const modal = document.getElementById("feedback-modal");
+            modal.style.display = "flex";
+            modal.classList.add('fade-in');
+            modal.style.pointerEvents = "auto";
         }
+
         function closeModal() {
-            document.getElementById("feedback-modal").style.display = "none";
-            // Clear selected feedback and additional comments after modal closes
-            document.querySelectorAll('#feedback-buttons button').forEach(function (btn) {
-                btn.classList.remove('selected-feedback');
-            });
-            document.getElementById('additionalComments').value = '';
+            const modal = document.getElementById("feedback-modal");
+            modal.classList.remove('fade-in');
+            modal.classList.add('fade-out');
+            setTimeout(() => {
+                modal.style.display = "none";
+                modal.classList.remove('fade-out');
+                modal.style.pointerEvents = "none";
+            }, 1000);
+            document.getElementById('selectedFeedback').value = ''; // Clear feedback selection
+            document.getElementById('additionalComments').value = ''; // Clear additional comments
         }
-        function selectFeedback(button, feedback, reaction) {
-            document.querySelectorAll('#feedback-buttons button').forEach(function (btn) {
-                btn.classList.remove('selected-feedback');
-            });
-            button.classList.add('selected-feedback');
-            document.getElementById('selectedFeedback').value = feedback; // Set hidden input value
-            console.log('Geselecteerde Feedback:', feedback, 'Reactie:', reaction);
-        }
+
         function scrollToTop() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-        window.onscroll = function () {
-            var scrollUpBtn = document.getElementById("scrollUpBtn");
-            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                scrollUpBtn.style.display = "block";
-            } else {
-                scrollUpBtn.style.display = "none";
-            }
-        };
+
+        function submitFeedback() {
+            const selectedFeedback = document.getElementById('selectedFeedback').value;
+            const additionalComments = document.getElementById('additionalComments').value;
+
+            const formData = new FormData();
+            formData.append('selectedFeedback', selectedFeedback);
+            formData.append('additionalComments', additionalComments);
+
+            fetch('http://127.0.0.1/api/handle_feedback.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Feedback submitted successfully:', data);
+                alert('Feedback submitted successfully!');
+                closeModal();
+            })
+            .catch(error => {
+                console.error('Error submitting feedback:', error);
+                alert('Error submitting feedback. Please try again later.');
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const modal = document.getElementById('feedback-modal');
+            const scrollUpBtn = document.getElementById('scrollUpBtn');
+
+            window.onscroll = function () {
+                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    scrollUpBtn.style.display = "block";
+                } else {
+                    scrollUpBtn.style.display = "none";
+                }
+            };
+        });
     </script>
 </body>
+
 </html>
