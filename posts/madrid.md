@@ -1,6 +1,5 @@
 ---
 layout: default
-title: Reis Vincent van Gogh achterna
 permalink: /posts/madrid.md/
 ---
 

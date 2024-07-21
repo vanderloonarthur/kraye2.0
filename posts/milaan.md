@@ -1,6 +1,5 @@
 ---
 layout: default
-title: Naar Milaan zonder geld of plan
 permalink: /posts/milaan.md/
 ---
 

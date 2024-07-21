@@ -1,55 +1,43 @@
 ---
 layout: default
-title: D'Arthur is coming home
 permalink: /posts/Edinburgh.md/
 ---
+
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>D'Arthur is coming home</title>
+  <title>Reis naar Madrid</title>
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
   <style>
     body, html {
       height: 100%;
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: black;
-      color: white;
+      background-color: black; /* Set the background color to black */
+      color: white; /* Set text color to white */
     }
     body, p {
       color: white;
     }
-    .center-text {
-      font-size: 1.5vw;
-      color: #FF2400;
-      max-width: 80%;
-      margin: 15px auto;
-    }
-    h1 {
+    h1{
       color: green;
     }
-    h2 {
-      color: red;
-    }
-    p {
-      color: white;
-    }
-    .back-to-gallery {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 10px 20px;
-      background-color: red;
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 5px;
-      transition: background-color 0.3s, color 0.3s;
-    }
-    .back-to-gallery:hover {
-      background-color: green;
-      color: white;
-    }
+  .back-to-gallery {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: red;
+    color: white; /* Set the font color to black */
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  .back-to-gallery:hover {
+    background-color: green;
+    color: white;
+  }
     .center-content {
       display: flex;
       flex-direction: column;
@@ -57,8 +45,8 @@ permalink: /posts/Edinburgh.md/
       text-align: center;
       min-height: 100vh;
       overflow: hidden;
-      max-width: 100%;
-      margin: 0 auto;
+      max-width: 100%; /* Added max-width for better responsiveness */
+      margin: 0 auto; /* Center the content horizontally */
     }
     .fullscreen-container {
       position: relative;
@@ -76,6 +64,12 @@ permalink: /posts/Edinburgh.md/
     .fullscreen-image.show {
       opacity: 1;
     }
+    .center-text {
+      font-size: 1.5vw;
+      color: #FF2400;
+      max-width: 80%;
+      margin: 15px auto;
+    }
     .small-image {
       cursor: pointer;
       max-width: 100%;
@@ -91,10 +85,10 @@ permalink: /posts/Edinburgh.md/
     .modal {
       display: none;
       position: fixed;
-      top: 0;
-      right: 0; 
+      top: auto;
+      right: 0; /* Stick to the right */
       bottom: 0;
-      left: 0; 
+      left: auto; /* Unset left */
       width: 100%;
       height: 100%;
       background: rgba(0, 0, 0, 0.8);
@@ -104,24 +98,21 @@ permalink: /posts/Edinburgh.md/
       align-items: center;
       opacity: 0;
       transition: opacity 1s ease-in-out;
-      pointer-events: none;
-    }
+      pointer-events: none; /* Clicks on the modal won't trigger events */
+}
     .modal-content {
-      display: flex;
-      justify-content: center;
-      align-items: center;
       width: 100%;
-      height: 100%;
-      max-width: 100%;
-      max-height: 100%;
+      height: auto;
+      max-width: 100%; /* Adjusted max-width */
+      max-height: 100%; /* Adjusted max-height */
       object-fit: contain;
       box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
     }
     .modal-image {
       width: 100%;
       height: auto;
-      max-width: 100vw;
-      max-height: 100vh;
+      max-width: 100vw; /* Adjusted max-width to fit the viewport width */
+      max-height: 100vh; /* Adjusted max-height to fit the viewport height */
       object-fit: contain;
     }
     @keyframes fadeIn {
@@ -133,11 +124,15 @@ permalink: /posts/Edinburgh.md/
       }
     }
     .modal.fade-in {
-      animation: fadeIn 2s ease-in-out; 
+      animation: fadeIn 2s ease-in-out; /* Increased duration to 2 seconds */
       opacity: 1;
     }
     .modal.fade-out {
       opacity: 0;
+    }
+    /* Add a transition for the fade-out effect */
+    .modal.fade-out .modal-content {
+      transition: opacity 1s ease-in-out;
     }
     .modal:hover .modal-content {
       box-shadow: 0 0 30px rgba(255, 215, 0, 1);
@@ -152,38 +147,15 @@ permalink: /posts/Edinburgh.md/
         font-size: 3vw;
       }
     }
-    .modal-video {
-      width: 80%;
-      max-width: 800px;
-      border-radius: 10px;
-      overflow: hidden;
-    }
-    .modal-video video {
-      width: 100%;
-      height: auto;
-      border-radius: 10px;
-      outline: none;
-    }
-    .modal-video::-webkit-media-controls {
-      background-color: rgba(0, 0, 0, 0.7);
-      border-radius: 10px;
-    }
-    .modal-video::-webkit-media-controls-play-button {
-      color: white;
-    }
-    .modal-video::-webkit-media-controls-volume-slider {
-      background-color: transparent;
-    }
   </style>
 </head>
 <body>
-<div class="center-content">
-  <div id="newText" style="display: block;">
-    <h1>D'Arthur is coming home!</h1>
-    <img src="{{ site.baseurl }}/assets/images/refugees.png" alt="Edinburgh" class="small-image" />
-    <figcaption>Vluchtelingen</figcaption>
-  </div>
-  <div class="center-text">
+  <div class="center-content">
+    <div id="newText" style="display: block;">
+      <h1>D'Arthur is coming home, april 2024</h1>
+      <img src="{{ site.baseurl }}/assets/images/refugees.png" alt="Kaleidoscope" class="small-image" />
+    </div>
+    <div class="center-text">
     <h2>Een waargebeurd verhaal.</h2>
     <p>
       10 April, 2024
@@ -249,16 +221,17 @@ permalink: /posts/Edinburgh.md/
     </p>
   </div>
 </div>
-<!-- Back to Gallery button -->
 <div style="text-align: center;">
   <a href='{{ site.baseurl }}../../travelblog.html' class="back-to-gallery">Back to Gallery</a>
 </div>
 
-<div id="myModal" class="modal" onclick="toggleModal()">
-  <div class="modal-content">
-    <img src="{{ site.baseurl }}/assets/images/refugees.png" alt="Popup Image" class="modal-image" />
-  </div>
+  <div id="myModal" class="modal" onclick="toggleModal()">
+    <div class="modal-content fullscreen-modal">
+      <img src="{{ site.baseurl }}/assets/images/refugees.png" alt="Popup Image" class="modal-image" />
 </div>
+</div>
+
+  <!-- ... Your existing HTML code ... -->
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
@@ -313,5 +286,3 @@ permalink: /posts/Edinburgh.md/
     modalImage.addEventListener("click", closeModal);
   });
 </script>
-</body>
-</html>
