@@ -1,35 +1,32 @@
 <?php
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $selectedFeedback = htmlspecialchars($_POST['selectedFeedback']);
-    $additionalComments = htmlspecialchars($_POST['additionalComments']);
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Validate and sanitize the input data
+    $selectedFeedback = filter_input(INPUT_POST, 'selectedFeedback', FILTER_SANITIZE_SPECIAL_CHARS);
+    $additionalComments = filter_input(INPUT_POST, 'additionalComments', FILTER_SANITIZE_SPECIAL_CHARS);
 
-    $logEntry = date('Y-m-d H:i:s') . " - Feedback: " . $selectedFeedback . " - Comments: " . $additionalComments . PHP_EOL;
-    $logFile = 'feedback.log';
+    if ($selectedFeedback !== false && $additionalComments !== false) {
+        // Create the log entry
+        $logEntry = date('Y-m-d H:i:s') . " - Feedback: " . $selectedFeedback . " - Comments: " . $additionalComments . PHP_EOL;
+        $logFile = '/Users/arthurross/Desktop/kraye/travelblog/feedback.log'; // Ensure this path is correct and writable
 
-    if (is_writable($logFile)) {
         // Append the feedback to the log file
-        file_put_contents($logFile, $logEntry, FILE_APPEND);
+        if (file_put_contents($logFile, $logEntry, FILE_APPEND) === false) {
+            // Handle error
+            header("Location: https://www.arpross.com/travelblog.html?status=error", true, 303);
+            exit();
+        }
 
-        $response = [
-            'status' => 'success',
-            'message' => 'Feedback submitted successfully!'
-        ];
+        // Redirect to travelblog.html with a success status
+        header("Location: https://www.arpross.com/travelblog.html?status=success", true, 303);
+        exit();
     } else {
-        $response = [
-            'status' => 'error',
-            'message' => 'Unable to write to log file.'
-        ];
+        // Handle invalid input
+        header("Location: https://www.arpross.com/travelblog.html?status=invalid", true, 303);
+        exit();
     }
-
-    header('Content-Type: application/json');
-    echo json_encode($response);
 } else {
-    $response = [
-        'status' => 'error',
-        'message' => 'Invalid request method.'
-    ];
-
-    header('Content-Type: application/json');
-    echo json_encode($response);
+    // Handle invalid request method
+    header("Location: https://www.arpross.com/travelblog.html?status=invalid_method", true, 303);
+    exit();
 }
 ?>

@@ -1,24 +1,12 @@
 ---
 permalink: /travelblog.html/
 ---
-
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Reis door Europa met Arthur Ross! Ontdek de schoonheid van Europa met deze boeiende reisverhalen.">
-    <title>Gallery - Reis door Europa met Arthur Ross!</title>
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HB19E314J8"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-HB19E314J8');
-    </script>
-    <!-- External Stylesheet for Styling -->
-    <link rel="stylesheet" href="styles.css">
+    <meta name="description" content="Arthur Ross's travel blog.">
+    <title>Reis door Europa met Arthur Ross!</title>
     <style>
         body, html {
             height: 100%;
@@ -69,46 +57,26 @@ permalink: /travelblog.html/
             text-align: center;
         }
 
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
+        .success-message, .error-message, .invalid-message {
+            text-align: center;
+            padding: 10px;
+            margin: 20px;
+            border-radius: 5px;
         }
 
-        .modal-content {
-            background: white;
+        .success-message {
+            background-color: green;
+            color: white;
+        }
+
+        .error-message {
+            background-color: red;
+            color: white;
+        }
+
+        .invalid-message {
+            background-color: yellow;
             color: black;
-            padding: 20px;
-            border-radius: 10px;
-            position: relative;
-            width: 90%;
-            max-width: 500px;
-        }
-
-        .modal .close {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: none;
-            border: none;
-            font-size: 1.5em;
-            cursor: pointer;
-        }
-
-        .modal.fade-in {
-            opacity: 1;
-        }
-
-        .modal.fade-out {
-            opacity: 0;
         }
 
         #scrollUpBtn {
@@ -132,8 +100,15 @@ permalink: /travelblog.html/
             font-size: 0.9em;
         }
     </style>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HB19E314J8"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-HB19E314J8');
+    </script>
 </head>
-
 <body>
     <header>
         <nav>
@@ -142,6 +117,8 @@ permalink: /travelblog.html/
     </header>
 
     <main>
+        <div id="feedback-message"></div>
+
         <section class="image-gallery">
             <!-- Gallery Items -->
             <div class="image-item">
@@ -178,8 +155,8 @@ permalink: /travelblog.html/
             </div>
         </section>
 
-<!-- Feedback Button -->
-<button onclick="location.href='http://localhost:8000/travelblog/feedback.html/'" aria-label="Open feedback page">Geef Feedback</button>
+        <!-- Feedback Button -->
+        <button onclick="location.href='http://localhost:8000/travelblog/feedback.php/'" aria-label="Open feedback page">Geef Feedback</button>
 
         <!-- Scroll to Top Button -->
         <button id="scrollUpBtn" onclick="scrollToTop()" aria-label="Scroll naar boven">Scroll naar boven</button>
@@ -250,8 +227,19 @@ permalink: /travelblog.html/
                     scrollUpBtn.style.display = "none";
                 }
             };
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const status = urlParams.get('status');
+            const feedbackMessage = document.getElementById('feedback-message');
+
+            if (status === 'success') {
+                feedbackMessage.innerHTML = '<div class="success-message">Uw feedback is succesvol verzonden!</div>';
+            } else if (status === 'error') {
+                feedbackMessage.innerHTML = '<div class="error-message">Er is een fout opgetreden bij het verzenden van uw feedback. Probeer het opnieuw.</div>';
+            } else if (status === 'invalid') {
+                feedbackMessage.innerHTML = '<div class="invalid-message">Ongeldige aanvraag.</div>';
+            }
         });
     </script>
 </body>
-
 </html>
