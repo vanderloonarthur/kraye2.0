@@ -59,7 +59,7 @@
 <body>
     <div class="feedback-container">
         <h2>Hoe blij bent u met de website?</h2>
-        <form action="/travelblog/handle_feedback.php" method="POST">
+        <form action="/kraye/travelblog/handle_feedback.php" method="POST">
             <label for="selectedFeedback">Select Feedback:</label>
             <select id="selectedFeedback" name="selectedFeedback" required>
                 <option value="Zeer gelukkig">Zeer gelukkig</option>

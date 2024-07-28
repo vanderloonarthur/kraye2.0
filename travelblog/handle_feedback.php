@@ -12,21 +12,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Append the feedback to the log file
         if (file_put_contents($logFile, $logEntry, FILE_APPEND) === false) {
             // Handle error
-            header("Location: https://www.arpross.com/travelblog.html?status=error", true, 303);
+            header("Location: /kraye/travelblog.html?status=error", true, 303);
             exit();
         }
 
         // Redirect to travelblog.html with a success status
-        header("Location: https://www.arpross.com/travelblog.html?status=success", true, 303);
+        header("Location: /kraye/travelblog.html?status=success", true, 303);
         exit();
     } else {
         // Handle invalid input
-        header("Location: https://www.arpross.com/travelblog.html?status=invalid", true, 303);
+        header("Location: /kraye/travelblog.html?status=invalid", true, 303);
         exit();
     }
 } else {
     // Handle invalid request method
-    header("Location: https://www.arpross.com/travelblog.html?status=invalid_method", true, 303);
+    header("Location: /kraye/travelblog.html?status=invalid_method", true, 303);
     exit();
 }
 ?>
