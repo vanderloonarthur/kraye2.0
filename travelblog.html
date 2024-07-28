@@ -178,33 +178,8 @@ permalink: /travelblog.html/
             </div>
         </section>
 
-        <!-- Feedback Button -->
-        <button onclick="openModal()" aria-label="Open feedback modal">Geef Feedback</button>
-
-        <!-- Feedback Modal -->
-        <div id="feedback-modal" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal()">&times;</span>
-                <h2>Hoe blij bent u met de website?</h2>
-                <form id="feedbackForm" onsubmit="submitFeedback(); return false;">
-                    <div>
-                        <label for="selectedFeedback">Select Feedback:</label><br>
-                        <select id="selectedFeedback" name="selectedFeedback">
-                            <option value="Zeer gelukkig">Zeer gelukkig</option>
-                            <option value="Gelukkig">Gelukkig</option>
-                            <option value="Neutraal">Neutraal</option>
-                            <option value="Ongelukkig">Ongelukkig</option>
-                            <option value="Zeer ongelukkig">Zeer ongelukkig</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label for="additionalComments">Additional Comments:</label><br>
-                        <textarea id="additionalComments" name="additionalComments" rows="4" placeholder="Voer hier uw commentaar in..."></textarea>
-                    </div>
-                    <button type="submit">Submit Feedback</button>
-                </form>
-            </div>
-        </div>
+<!-- Feedback Button -->
+<button onclick="location.href='http://localhost:8000/travelblog/feedback.html/'" aria-label="Open feedback page">Geef Feedback</button>
 
         <!-- Scroll to Top Button -->
         <button id="scrollUpBtn" onclick="scrollToTop()" aria-label="Scroll naar boven">Scroll naar boven</button>
