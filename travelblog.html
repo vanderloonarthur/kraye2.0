@@ -57,28 +57,6 @@ permalink: /travelblog.html/
             text-align: center;
         }
 
-        .success-message, .error-message, .invalid-message {
-            text-align: center;
-            padding: 10px;
-            margin: 20px;
-            border-radius: 5px;
-        }
-
-        .success-message {
-            background-color: green;
-            color: white;
-        }
-
-        .error-message {
-            background-color: red;
-            color: white;
-        }
-
-        .invalid-message {
-            background-color: yellow;
-            color: black;
-        }
-
         #scrollUpBtn {
             position: fixed;
             bottom: 20px;
@@ -117,8 +95,6 @@ permalink: /travelblog.html/
     </header>
 
     <main>
-        <div id="feedback-message"></div>
-
         <section class="image-gallery">
             <!-- Gallery Items -->
             <div class="image-item">
@@ -156,7 +132,7 @@ permalink: /travelblog.html/
         </section>
 
         <!-- Feedback Button -->
-        <button onclick="location.href='/kraye/travelblog/feedback.php/'" aria-label="Open feedback page">Geef Feedback</button>
+        <button onclick="location.href='/feedback.php/'" aria-label="Open feedback page">Geef Feedback</button>
 
         <!-- Scroll to Top Button -->
         <button id="scrollUpBtn" onclick="scrollToTop()" aria-label="Scroll naar boven">Scroll naar boven</button>
@@ -168,56 +144,11 @@ permalink: /travelblog.html/
 
     <!-- JavaScript -->
     <script>
-        function openModal() {
-            const modal = document.getElementById("feedback-modal");
-            modal.style.display = "flex";
-            modal.classList.add('fade-in');
-            modal.style.pointerEvents = "auto";
-        }
-
-        function closeModal() {
-            const modal = document.getElementById("feedback-modal");
-            modal.classList.remove('fade-in');
-            modal.classList.add('fade-out');
-            setTimeout(() => {
-                modal.style.display = "none";
-                modal.classList.remove('fade-out');
-                modal.style.pointerEvents = "none";
-            }, 1000);
-            document.getElementById('selectedFeedback').value = ''; // Clear feedback selection
-            document.getElementById('additionalComments').value = ''; // Clear additional comments
-        }
-
         function scrollToTop() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        function submitFeedback() {
-            const selectedFeedback = document.getElementById('selectedFeedback').value;
-            const additionalComments = document.getElementById('additionalComments').value;
-
-            const formData = new FormData();
-            formData.append('selectedFeedback', selectedFeedback);
-            formData.append('additionalComments', additionalComments);
-
-            fetch('http://127.0.0.1/api/handle_feedback.php', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log('Feedback submitted successfully:', data);
-                alert('Feedback submitted successfully!');
-                closeModal();
-            })
-            .catch(error => {
-                console.error('Error submitting feedback:', error);
-                alert('Error submitting feedback. Please try again later.');
-            });
-        }
-
         document.addEventListener("DOMContentLoaded", function () {
-            const modal = document.getElementById('feedback-modal');
             const scrollUpBtn = document.getElementById('scrollUpBtn');
 
             window.onscroll = function () {
@@ -230,7 +161,7 @@ permalink: /travelblog.html/
 
             const urlParams = new URLSearchParams(window.location.search);
             const status = urlParams.get('status');
-            const feedbackMessage = document.getElementById('feedback-message');
+            const feedbackMessage = document.createElement('div');
 
             if (status === 'success') {
                 feedbackMessage.innerHTML = '<div class="success-message">Uw feedback is succesvol verzonden!</div>';
@@ -239,6 +170,8 @@ permalink: /travelblog.html/
             } else if (status === 'invalid') {
                 feedbackMessage.innerHTML = '<div class="invalid-message">Ongeldige aanvraag.</div>';
             }
+
+            document.body.insertBefore(feedbackMessage, document.body.firstChild);
         });
     </script>
 </body>

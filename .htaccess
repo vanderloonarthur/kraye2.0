@@ -10,3 +10,8 @@
 <LimitExcept GET POST>
     Require all denied
 </LimitExcept>
+ 
+AddType application/x-httpd-php .php
+
+# Ensure HTML files are served correctly
+AddType text/html .html

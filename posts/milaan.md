@@ -8,7 +8,6 @@ permalink: /posts/milaan.md/
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Naar Milaan zonder geld of plan</title>
-  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
   <style>
     body, html {
       height: 100%;

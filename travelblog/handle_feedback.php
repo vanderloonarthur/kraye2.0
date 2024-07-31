@@ -1,32 +1,31 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Validate and sanitize the input data
+    // Sanitize and retrieve input data
     $selectedFeedback = filter_input(INPUT_POST, 'selectedFeedback', FILTER_SANITIZE_SPECIAL_CHARS);
     $additionalComments = filter_input(INPUT_POST, 'additionalComments', FILTER_SANITIZE_SPECIAL_CHARS);
 
-    if ($selectedFeedback !== false && $additionalComments !== false) {
-        // Create the log entry
-        $logEntry = date('Y-m-d H:i:s') . " - Feedback: " . $selectedFeedback . " - Comments: " . $additionalComments . PHP_EOL;
-        $logFile = '/Users/arthurross/Desktop/kraye/travelblog/feedback.log'; // Ensure this path is correct and writable
+    // Define the log file path
+    $logFile = __DIR__ . '/feedback.log';
 
-        // Append the feedback to the log file
-        if (file_put_contents($logFile, $logEntry, FILE_APPEND) === false) {
-            // Handle error
-            header("Location: /kraye/travelblog.html?status=error", true, 303);
-            exit();
-        }
+    // Prepare the log entry
+    $logEntry = sprintf(
+        "%s - Feedback: %s - Comments: %s%s",
+        date('Y-m-d H:i:s'),
+        $selectedFeedback,
+        $additionalComments,
+        PHP_EOL
+    );
 
-        // Redirect to travelblog.html with a success status
-        header("Location: /kraye/travelblog.html?status=success", true, 303);
-        exit();
+    // Write feedback to the log file and redirect
+    if ($selectedFeedback && $additionalComments && file_put_contents($logFile, $logEntry, FILE_APPEND)) {
+        header("Location: ../travelblog.html?status=success", true, 303);
     } else {
-        // Handle invalid input
-        header("Location: /kraye/travelblog.html?status=invalid", true, 303);
-        exit();
+        header("Location: ../travelblog.html?status=error", true, 303);
     }
-} else {
-    // Handle invalid request method
-    header("Location: /kraye/travelblog.html?status=invalid_method", true, 303);
     exit();
 }
+
+// Handle invalid request method
+header("Location: ../travelblog.html?status=invalid_method", true, 303);
+exit();
 ?>
